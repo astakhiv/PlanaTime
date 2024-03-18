@@ -1,0 +1,24 @@
+.taskSpace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 10%);
+    width: 80vh;
+    height: 40%;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.taskSpaceInfo {
+    color: rgba(255, 255, 255, 44%);
+    text-align: center;
+}
+
+@media (width <= 425px) {
+    .taskSpaceInfo {
+        font-size: 14px;
+    }
+}

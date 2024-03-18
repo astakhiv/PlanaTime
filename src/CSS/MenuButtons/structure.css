@@ -1,0 +1,28 @@
+.button {
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    height: 100%;
+    margin: auto;
+    border: none;
+    aspect-ratio: 2 / 1;
+    transition: 700ms;
+}
+
+.topButton {
+    display: flex;
+    padding-top: 100px;
+    border-radius: 0 0 100vh 100vh;
+    -webkit-border-radius: 0 0 100vh 100vh;
+    -moz-border-radius: 0 0 100vh 100vh;
+    -ms-border-radius: 0 0 100vh 100vh;
+    -o-border-radius: 0 0 100vh 100vh;
+}
+
+.downButton {
+    border-radius: 100vh 100vh 0 0;
+    -webkit-border-radius: 100vh 100vh 0 0;
+    -moz-border-radius: 100vh 100vh 0 0;
+    -ms-border-radius: 100vh 100vh 0 0;
+    -o-border-radius: 100vh 100vh 0 0;
+}

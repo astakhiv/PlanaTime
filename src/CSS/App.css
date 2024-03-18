@@ -1,0 +1,29 @@
+#root {
+    background: linear-gradient(-45deg, #262626, #000);
+    overflow: hidden;
+}
+
+.section {
+    width: 100%;
+    text-align: center;
+}
+
+.TopCircle {
+    position: relative;
+    overflow: hidden;
+    height: 40vh;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.BottomCircle {
+    position: relative;
+    overflow: hidden;
+    height: 20vh;
+}
+

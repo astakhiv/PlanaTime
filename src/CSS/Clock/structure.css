@@ -1,0 +1,10 @@
+.time {
+    font-size: 64px;
+    width: 100%;
+}
+
+@media (width <= 425px) {
+    .time {
+        font-size: 48px;
+    }
+}
