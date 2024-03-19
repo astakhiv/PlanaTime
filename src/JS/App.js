@@ -10,9 +10,13 @@ function App() {
     const [dropDown, setDropDown] = useState("hide")
     const [animation, setAnimation] = useState("");
 
+    if (!localStorage.getItem('tasks')) {
+        localStorage.setItem('tasks', JSON.stringify([]));
+    }
+
     const open = () => { setDropDown('show'); };
     const close = () => {
-        setDropDown('hide')
+        setDropDown('hide');
     };
 
     return (

@@ -14,7 +14,7 @@ function Clock() {
 
     setInterval(UpdateTime);
     return (
-        <span class="time">{ctime}</span>
+        <span className="time">{ctime}</span>
     );
 }
 

@@ -1,8 +1,9 @@
 .task {
+    transition: 300ms;
+    box-sizing: border-box;
     background: linear-gradient(90deg, #CB3F3F, #9E00FF);
     color: #FFFFFF;
-    text-align: start;
-    padding-left: 5%;
+    padding: 0 5%;
     font-size: 32px;
     border: none;
     width: 100%;
@@ -13,7 +14,20 @@
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -ms-transition: 300ms;
+    -o-transition: 300ms;
+}
 
+.taskOpened {
+
+}
+
+.taskClosed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .task:hover {

@@ -1,18 +1,16 @@
 import Task from "./Task";
 import "../CSS/TaskList/TaskList.css";
 
-function TaskList() {
-    let obj = {
-        name: "Task1"
-    };
+function TaskList({open, opened, tasks}) {
 
     return (
         <div className="taskList">
-            <Task object={obj}/>
-            <Task object={obj}/>
-            <Task object={obj}/>
-            <Task object={obj}/>
-            <Task object={obj}/>
+            {
+                tasks.map((task, index) => {
+                    return <Task key={index} index={index} open={open} opened={index === opened} object={task}/>
+                    }
+                )
+            }
         </div>
     );
 }
