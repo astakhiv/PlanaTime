@@ -1,10 +1,8 @@
 import "../CSS/Task/Task.css";
 
-function Task() {
+function Task({object}) {
     return (
-        <div className="taskSpace">
-            <span className="taskSpaceInfo">Double click any task in the lower circle to start your productive day</span>
-        </div>
+        <button className="task">{object.name}</button>
     );
 }
 

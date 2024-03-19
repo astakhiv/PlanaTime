@@ -1,10 +1,10 @@
 import MenuButton from "./MenuButton";
 import "../CSS/App.css"
 
-function BottomCircle() {
+function BottomCircle({ onClick }) {
     return (
         <section className="section BottomCircle">
-            <MenuButton styles="downButton"/>
+            <MenuButton styles="downButton" onClick={onClick}/>
         </section>
     )
 }

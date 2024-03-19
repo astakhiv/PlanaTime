@@ -1,0 +1,6 @@
+.taskList {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 80%;
+    height: 90%;
+}
