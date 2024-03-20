@@ -6,6 +6,10 @@ import '../CSS/App.css';
 import '../CSS/Scroll.css'
 import { useState } from 'react';
 
+let vh = window.innerHeight * 0.01;
+
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 function App() {
     const [dropDown, setDropDown] = useState("hide")
     const [animation, setAnimation] = useState("");
