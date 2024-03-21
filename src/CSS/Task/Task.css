@@ -1,40 +1,65 @@
 .task {
-    display: flex;
-    align-items: center;
-    transition: 300ms;
-    box-sizing: border-box;
     background: linear-gradient(90deg, #CB3F3F, #9E00FF);
     color: #FFFFFF;
-    padding: 0 5%;
     font-size: 32px;
-    border: none;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
     width: 100%;
+    padding: 0 5%;
     margin: 5px 0;
+    transition: margin 300ms;
+    border: none;
     border-radius: 25px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
-    -webkit-transition: 300ms;
-    -moz-transition: 300ms;
-    -ms-transition: 300ms;
-    -o-transition: 300ms;
-}
-
-.taskOpened {
-    height: 90%;
-    justify-content: space-around;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    -webkit-transition: margin 300ms;
+    -moz-transition: margin 300ms;
+    -ms-transition: margin 300ms;
+    -o-transition: margin 300ms;
 }
 
 .taskClosed {
-    height: 20%;
     flex-direction: row-reverse;
     justify-content: space-between;
+    height: 20%;
+    animation: closeTask 500ms ease;
+    -webkit-animation: closeTask 500ms ease;
 }
 
-.task:hover {
+.taskOpened {
+    flex-wrap: wrap;
+    justify-content: end;
+    align-content: flex-start;
+    height: 90%;
+    margin: 10px 0;
+    animation: openTask 500ms ease;
+    -webkit-animation: openTask 500ms ease;
+}
+
+.taskSelected {
+    justify-content: start !important;
+    width: 80vh;
+    height: 40% !important;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.taskToDo {
+    opacity: 100%;
+}
+
+.taskCompleted {
+    opacity: 50%;
+    text-decoration: line-through;
+}
+
+.taskClosed:hover {
     margin: 10px 0;
     filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 60%));
     -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 60%));
@@ -43,5 +68,23 @@
 @media (width <= 768px) {
     .task {
         font-size: 24px;
+    }
+}
+
+@keyframes openTask {
+    0% {
+        height: 20%;
+    }
+    100% {
+        height: 90%;
+    }
+}
+
+@keyframes closeTask {
+    0% {
+        height: 90%;
+    }
+    100% {
+        height: 20%;
     }
 }

@@ -1,24 +1,46 @@
 import "../CSS/Task/Task.css";
-import EditForm from "./EditFrom";
+import "../CSS/Task/ControlButtons.css";
+import EditForm from "./DropDown/EditFrom";
 import { preventDefault } from "./preventDefault";
+import { changeProperty, deleteFromLocalStorage } from "./api";
 
-function Task({index, open, opened, object}) {
+
+function Task( {looped, index, states, actions, data} ) {
 
     const deleteTask = (e) => {
         preventDefault(e);
-        const tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks.splice(index, 1);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        open(-2);
-    }
+        if (states.selected) {
+            alert("deleted");
+            actions.select(-1);
+        }
+        deleteFromLocalStorage(index);
+        actions.open(-2);
+    };
+
+    const openTask = (e) => {
+        preventDefault(e);
+        actions.open(index);
+    };
+
+    const onDoubleClick = () => {
+        if (data.completed) {
+            changeProperty(index, "completed", false);
+            actions.open(-2);
+        } else {
+            actions.select(index);
+        }
+    };
 
     return (
-        <div className={`task ${opened ? "taskOpened" : "taskClosed"}`}>
-            <div>
-                <button onClick={deleteTask}>Delete</button>
-                <button onClick={() => open(index)}>{opened ? "Close" : "Open"}</button>
+        <div className={`task ${data.completed ? "taskCompleted" : "taskToDo"} ${states.opened ? "taskOpened" : "taskClosed"} ${states.selected && !looped ? "taskSelected": ""}`} onDoubleClick={onDoubleClick}>
+            {
+            (!states.selected || looped) &&
+            <div className={"buttons " + (states.opened ? "buttonsOpened" : "buttonsClosed")}>
+                <button className={"taskButton openCloseButton " + (states.opened ? "closeButton" : "openButton")} onClick={openTask}/>
+                <button className={"taskButton deleteButton " + (states.opened ? "deleteButtonOpened" : "deleteButtonClosed")} onClick={deleteTask}/>
             </div>
-            {opened ? <EditForm index={index} task={object} open={open}/> : object.name}
+            }
+            {states.opened ? <EditForm index={index} task={data} open={actions.open}/> : data.name}
         </div>
     );
 }

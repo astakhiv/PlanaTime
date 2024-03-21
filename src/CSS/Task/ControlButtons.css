@@ -1,0 +1,91 @@
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttonsOpened {
+    height: 10%;
+}
+
+
+.buttonsClosed {
+    height: 100%;
+}
+
+.taskButton {
+    border: none;
+    background: none;
+    background-position: center;
+    background-size: cover;
+    margin: 0 5px;
+}
+
+.openCloseButton {
+    aspect-ratio: 1.73/1;
+    background-image: url("../../Images/open-close.png");
+}
+
+.openButton {
+    height: 15%;
+    animation: openButton 500ms ease;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-animation: openButton 500ms ease;
+}
+
+.closeButton {
+    height: 30%;
+    animation: closeButton 500ms ease;
+    -webkit-animation: closeButton 500ms ease;
+}
+
+.deleteButton {
+    aspect-ratio: 1/1;
+    background-image: url("../../Images/delete.png");
+}
+
+.deleteButtonClosed {
+    height: 20%;
+}
+
+.deleteButtonOpened {
+    height: 50%;
+}
+
+@keyframes openButton {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+}
+
+@keyframes closeButton {
+    0% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}

@@ -1,9 +1,9 @@
 import MenuButton from "./MenuButton";
-import "../CSS/App.css"
+import "../../CSS/App.css";
 
 function BottomCircle({ onClick }) {
     return (
-        <section className="section BottomCircle">
+        <section className="circle BottomCircle">
             <MenuButton styles="downButton" onClick={onClick}/>
         </section>
     )

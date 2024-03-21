@@ -1,10 +1,10 @@
 import MenuButton from "./MenuButton";
 import Clock from "./Clock";
-import "../CSS/App.css"
+import "../../CSS/App.css";
 
 function TopCircle({onClick}) {
     return (
-        <section className="section TopCircle">
+        <section className="circle TopCircle">
             <MenuButton styles="topButton" onClick={onClick}>
                 <Clock/>
             </MenuButton>

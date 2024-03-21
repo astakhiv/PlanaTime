@@ -22,15 +22,22 @@ button:visited {
     opacity: 100%;
 }
 
-.section {
+section {
     width: 100%;
     text-align: center;
 }
 
-.TopCircle {
+.circle {
     position: relative;
     overflow: hidden;
+}
+
+.TopCircle {
     height: 40%;
+}
+
+.BottomCircle {
+    height: 20%;
 }
 
 .taskArea {
@@ -38,10 +45,4 @@ button:visited {
     justify-content: center;
     align-items: center;
     height: 40%;
-}
-
-.BottomCircle {
-    position: relative;
-    overflow: hidden;
-    height: 20%;
 }

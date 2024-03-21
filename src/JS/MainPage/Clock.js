@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../CSS/Clock/color.css";
-import "../CSS/Clock/structure.css";
+import "../../CSS/Clock/color.css";
+import "../../CSS/Clock/structure.css";
 
 function Clock() {
     let time = new Date().toLocaleTimeString([],  { hour12: false });
