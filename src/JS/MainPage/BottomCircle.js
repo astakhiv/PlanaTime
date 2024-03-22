@@ -1,12 +1,12 @@
 import MenuButton from "./MenuButton";
-import "../../CSS/App.css";
+import '../../CSS/circleButtons.css';
 
 function BottomCircle({ onClick }) {
     return (
-        <section className="circle BottomCircle">
+        <section className="h-20">
             <MenuButton styles="downButton" onClick={onClick}/>
         </section>
-    )
+    );
 }
 
 export default BottomCircle;

@@ -1,0 +1,52 @@
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgba(0, 0, 0, 60%);
+}
+
+.dropDown {
+    width: 40%;
+}
+
+.topAnim {
+    animation: top 750ms ease;
+    -webkit-animation: top 750ms ease;
+}
+
+.bottomAnim {
+    animation: bottom 750ms ease;
+    -webkit-animation: bottom 750ms ease;
+}
+
+.addButton {
+    height: 60px;
+}
+
+.taskList {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+@media (width <= 1024px) {
+    .dropDown {
+        width: 60%;
+    }
+}
+
+@media (width <= 768px) {
+    .dropDown {
+        width: 80%;
+    }
+}

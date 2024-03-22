@@ -1,6 +1,4 @@
 import { useState } from "react";
-import "../../CSS/Clock/color.css";
-import "../../CSS/Clock/structure.css";
 
 function Clock() {
     let time = new Date().toLocaleTimeString([],  { hour12: false });
@@ -14,7 +12,7 @@ function Clock() {
 
     setInterval(UpdateTime);
     return (
-        <span className="time">{ctime}</span>
+        <span className="xLarge w-100">{ctime}</span>
     );
 }
 

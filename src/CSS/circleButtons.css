@@ -1,22 +1,24 @@
+.button:hover {
+    animation: circleShake 200ms ease 1;
+    -webkit-animation: circleShake 200ms ease 1;
+}
+
 .button {
     position: absolute;
     left: -9999px;
     right: -9999px;
     height: 100%;
     margin: auto;
-    border: none;
     aspect-ratio: 2 / 1;
-    transition: 700ms;
 }
 
 .topButton {
-    display: flex;
-    padding-top: 100px;
+    padding-bottom: 100px;
     border-radius: 0 0 100vh 100vh;
-    -webkit-border-radius: 0 0 100vh 100vh;
     -moz-border-radius: 0 0 100vh 100vh;
     -ms-border-radius: 0 0 100vh 100vh;
     -o-border-radius: 0 0 100vh 100vh;
+    -webkit-border-radius: 0 0 100vh 100vh;
 }
 
 .downButton {

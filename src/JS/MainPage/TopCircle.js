@@ -1,15 +1,15 @@
 import MenuButton from "./MenuButton";
 import Clock from "./Clock";
-import "../../CSS/App.css";
+import '../../CSS/circleButtons.css';
 
 function TopCircle({onClick}) {
     return (
-        <section className="circle TopCircle">
-            <MenuButton styles="topButton" onClick={onClick}>
+        <section className="h-40">
+            <MenuButton styles="topButton flex-container" onClick={onClick}>
                 <Clock/>
             </MenuButton>
         </section>
-    )
+    );
 }
 
 export default TopCircle;

@@ -1,21 +1,31 @@
-import Task from "../Task";
-import "../../CSS/TaskList/TaskList.css";
+import { changeProperty } from "../API/api";
+import Task from "../Task/Task";
 
-function TaskList({ select, selected, open, opened, completed, tasks}) {
+function TaskList({ select, selected, open, openedTask, completed, tasks}) {
 
     return (
-        <div className="taskList">
+        <div className="taskList w-80 h-90">
             {
                 tasks.map((task, index) => {
                         const props = {
                             index: index,
                             states: {
-                                opened: index === opened,
+                                opened: index === openedTask,
                                 selected: index === selected
                             },
                             actions: {
-                                open: open,
-                                select: select
+                                open: () => open(index),
+                                close: () => open(-2),
+                                select: () => select(index),
+                                reset: () => select(-1),
+                                onDoubleClick: () => {
+                                    if (completed) {
+                                        changeProperty(index, "completed", false);
+                                        open(-2);
+                                    } else {
+                                        select(index);
+                                    }
+                                }
                             },
                         }
 

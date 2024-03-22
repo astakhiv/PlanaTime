@@ -1,37 +1,33 @@
-import Task from "../Task";
-import "../../CSS/App.css"
+import { changeProperty } from "../API/api";
+import Task from "../Task/Task";
 import TaskHint from "./TaskHint";
+import '../../CSS/taskArea.css';
 
-function TaskArea({select, task}) {
+function TaskArea( {select, task} ) {
     const complete = () => {
-        const tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks[task].completed = true;
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        changeProperty(task, 'completed', true);
         select(-1);
-    }
+    };
 
     const props = {
         index: task,
-        states: {
-            opened: false,
-            selected: true
-        },
+        states: { opened: false, selected: true},
         actions: {
-            open: undefined,
-            select: () => complete()
+            onDoubleClick: () => complete()
         },
-    }
+    };
+
     const taskObject = JSON.parse(localStorage.getItem('tasks'))[task];
 
     return (
-        <section className="taskArea">
+        <section className="h-40 flex-container">
             {
                 task >= 0
                 ? <Task looped={false} index={props.index} states={props.states} actions={props.actions} data={taskObject}/>
                 : <TaskHint/>
             }
         </section>
-    )
+    );
 }
 
 export default TaskArea;

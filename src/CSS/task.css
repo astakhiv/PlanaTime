@@ -1,0 +1,47 @@
+.task {
+    width: 100%;
+    margin: 5px 0;
+    padding: 0 5%;
+    justify-content: start;
+}
+
+.taskClosed {
+    justify-content: space-between !important;
+    animation: closeTask 500ms ease;
+    -webkit-animation: closeTask 500ms ease;
+}
+
+.taskClosed:hover {
+    margin: 10px 0;
+    filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 60%));
+    -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 60%));
+}
+
+.taskOpened {
+    justify-content: end;
+    align-content: flex-start;
+    margin: 10px 0;
+    animation: openTask 500ms ease;
+    -webkit-animation: openTask 500ms ease;
+}
+
+.taskSelected {
+    width: 80vh;
+}
+
+.taskName {
+    position: absolute;
+    top: auto;
+    bottom: auto;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}

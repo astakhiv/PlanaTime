@@ -1,0 +1,69 @@
+@keyframes circleShake {
+    25% {
+        transform: translate(5px);
+        -webkit-transform: translate(5px);
+        -moz-transform: translate(5px);
+        -ms-transform: translate(5px);
+        -o-transform: translate(5px);
+    }
+
+    75% {
+        transform: translate(-5px);
+        -webkit-transform: translate(-5px);
+        -moz-transform: translate(-5px);
+        -ms-transform: translate(-5px);
+        -o-transform: translate(-5px);
+    }
+}
+
+@keyframes openTask {
+    0% {
+        height: 20%;
+    }
+    100% {
+        height: 90%;
+    }
+}
+
+@keyframes closeTask {
+    0% {
+        height: 90%;
+    }
+    100% {
+        height: 20%;
+    }
+}
+
+@keyframes top {
+    0% {
+      transform: translate(0, -25%);
+      -webkit-transform: translate(0, -25%);
+      -moz-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+      -o-transform: translate(0, -25%);
+    }
+    100% {
+      transform: translate(0, 0%);
+      -webkit-transform: translate(0, 0%);
+      -moz-transform: translate(0, 0%);
+      -ms-transform: translate(0, 0%);
+      -o-transform: translate(0, 0%);
+    }
+}
+
+@keyframes bottom {
+    0% {
+        transform: translate(0, 25%);
+        -webkit-transform: translate(0, 25%);
+        -moz-transform: translate(0, 25%);
+        -ms-transform: translate(0, 25%);
+        -o-transform: translate(0, 25%);
+    }
+    100% {
+        transform: translate(0, 0%);
+        -webkit-transform: translate(0, 0%);
+        -moz-transform: translate(0, 0%);
+        -ms-transform: translate(0, 0%);
+        -o-transform: translate(0, 0%);
+    }
+}
