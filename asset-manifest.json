@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.74cf5734.css",
-    "main.js": "/static/js/main.37b9648a.js",
-    "static/media/add.png": "/static/media/add.1123681b77c98a065cdb.png",
-    "index.html": "/index.html",
-    "main.74cf5734.css.map": "/static/css/main.74cf5734.css.map",
-    "main.37b9648a.js.map": "/static/js/main.37b9648a.js.map"
+    "main.css": "/PlanaTime/static/css/main.74cf5734.css",
+    "main.js": "/PlanaTime/static/js/main.e4bf87ad.js",
+    "static/media/add.png": "/PlanaTime/static/media/add.1123681b77c98a065cdb.png",
+    "index.html": "/PlanaTime/index.html",
+    "main.74cf5734.css.map": "/PlanaTime/static/css/main.74cf5734.css.map",
+    "main.e4bf87ad.js.map": "/PlanaTime/static/js/main.e4bf87ad.js.map"
   },
   "entrypoints": [
     "static/css/main.74cf5734.css",
-    "static/js/main.37b9648a.js"
+    "static/js/main.e4bf87ad.js"
   ]
 }
