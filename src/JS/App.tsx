@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { setupDB, setupStyles } from './API/additional';
+import { setupDB, setupStyles } from './utils/additional';
 import BottomCircle from './MainPage/BottomCircle';
 import DropDown from './DropDown/DropDown';
 import TaskArea from './MainPage/TaskArea';
@@ -17,9 +17,9 @@ function App() {
     const [animation, setAnimation] = useState('');
     const [selectedTask, setSelectedTask] = useState(-1);
 
-    const open = (anim) => { setDropDown('show'); setAnimation(anim); };
+    const open = (anim: string) => { setDropDown('show'); setAnimation(anim); };
     const close = () => { setDropDown('hide'); };
-    const select = (i) => { setSelectedTask(i); close(); }
+    const select = (i: number) => { setSelectedTask(i); close(); }
 
     return (
         <>

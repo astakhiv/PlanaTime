@@ -1,11 +1,16 @@
-import { changeProperty } from "../API/api";
+import { changeProperty } from "../utils/api";
 import Task from "../Task/Task";
 import TaskHint from "./TaskHint";
 import '../../CSS/taskArea.css';
 
-function TaskArea( {select, task} ) {
+interface TaskAreaProps {
+    select: (i: number) => void,
+    task: number,
+}
+
+function TaskArea( {select, task}: TaskAreaProps) {
     const complete = () => {
-        changeProperty(task, 'completed', true);
+        changeProperty({index: task, prop: 'completed', value: true});
         select(-1);
     };
 
@@ -17,7 +22,7 @@ function TaskArea( {select, task} ) {
         },
     };
 
-    const taskObject = JSON.parse(localStorage.getItem('tasks'))[task];
+    const taskObject = JSON.parse(localStorage.getItem('tasks') as string)[task];
 
     return (
         <section className="h-40 flex-container">

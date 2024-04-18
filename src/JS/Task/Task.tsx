@@ -1,23 +1,51 @@
 import EditForm from "./EditFrom";
-import { preventDefault } from "../API/additional";
-import { deleteFromLocalStorage } from "../API/api";
+import { preventDefault } from "../utils/additional";
+import { deleteFromLocalStorage } from "../utils/api";
 import deleteButton from "../../Images/delete.png";
 import openButton from "../../Images/open.png";
 import closeButton from "../../Images/close.png";
 import '../../CSS/task.css';
 
-function Task( {looped, index, states, actions, data} ) {
+interface TodoTask {
+    name: string,
+    description: string,
+    completed: boolean,
+}
 
-    const deleteTask = (e) => {
+interface TaskProps {
+    looped: boolean,
+    index: number,
+    key?: number,
+    states: {opened: boolean, selected: boolean},
+    actions: {
+        open?: () => void,
+        close?: () => void,
+        select?: () => void,
+        reset?: () => void,
+        onDoubleClick: () => void,
+    },
+    data: TodoTask
+}
+
+function Task( {looped, index, states, actions, data}: TaskProps  ) {
+
+    const deleteTask = (e: React.MouseEvent<HTMLElement>) => {
         preventDefault(e);
-        if (states.selected) {
+        if (states.selected && actions.reset) {
             actions.reset();
         }
-        deleteFromLocalStorage(index);
-        actions.close();
+        deleteFromLocalStorage({index});
+        if (actions.close) {
+            actions.close();
+        }
     };
 
-    const openTask = (e) => { preventDefault(e); actions.open(); };
+    const openTask = (e: React.MouseEvent<HTMLElement>) => {
+        preventDefault(e);
+        if (actions.open) {
+            actions.open();
+        }
+    };
 
     return (
         <div className={`gradientBG task flex-container large ${data.completed ? "o-50" : "o-100"} ${states.opened ? "taskOpened h-90" : "taskClosed h-20"} ${states.selected && !looped ? "taskSelected taskInProgress h-40": ""}`} onDoubleClick={actions.onDoubleClick}>
@@ -30,7 +58,7 @@ function Task( {looped, index, states, actions, data} ) {
             }
             {
                 states.opened
-                ? <EditForm index={index} task={data} close={actions.close}/>
+                ? <EditForm index={index} task={data} close={actions.close ? actions.close : () => {}}/>
                 : <span className="taskName">{data.name}</span>
             }
         </div>

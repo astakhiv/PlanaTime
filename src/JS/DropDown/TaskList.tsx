@@ -1,12 +1,27 @@
-import { changeProperty } from "../API/api";
+import { changeProperty } from "../utils/api";
 import Task from "../Task/Task";
 
-function TaskList({ select, selected, open, openedTask, completed, tasks}) {
+interface TodoTask {
+    name: string,
+    description: string,
+    completed: boolean,
+}
+
+interface TaskListProps {
+    select: (i: number) => void,
+    selected: number,
+    open: (task: number) => void,
+    openedTask: (number),
+    completed: boolean,
+    tasks: TodoTask[],
+}
+
+function TaskList({ select, selected, open, openedTask, completed, tasks}: TaskListProps) {
 
     return (
         <div className="taskList w-80 h-90">
             {
-                tasks.map((task, index) => {
+                tasks.map((task, index: number) => {
                         const props = {
                             index: index,
                             states: {
@@ -20,7 +35,7 @@ function TaskList({ select, selected, open, openedTask, completed, tasks}) {
                                 reset: () => select(-1),
                                 onDoubleClick: () => {
                                     if (completed) {
-                                        changeProperty(index, "completed", false);
+                                        changeProperty({index: index, prop:"completed", value:false});
                                         open(-2);
                                     } else {
                                         select(index);

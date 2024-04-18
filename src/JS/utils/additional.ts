@@ -1,4 +1,4 @@
-export function preventDefault(e) {
+export function preventDefault(e: React.MouseEvent<HTMLElement> | React.FormEvent<HTMLFormElement>) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
 }
