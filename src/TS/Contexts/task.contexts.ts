@@ -1,9 +1,11 @@
 import { createContext } from "react";
 
-const TaskContext = createContext({
-    selected: -1,
+export const TaskContext = createContext({
+    selectedTask: -1,
     select: (i:number) => {}
 });
 
-
-export default TaskContext;
+export const OpenedTaskContext = createContext({
+    openedTask: -1,
+    open: (i: number) => {}
+});
