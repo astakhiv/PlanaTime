@@ -48,7 +48,7 @@ function Task( {looped, index, states, actions, data}: TaskProps  ) {
     };
 
     return (
-        <div className={`gradientBG task flex-container large ${data.completed ? "o-50" : "o-100"} ${states.opened ? "taskOpened h-90" : "taskClosed h-20"} ${states.selected && !looped ? "taskSelected taskInProgress h-40": ""}`} onDoubleClick={actions.onDoubleClick}>
+        <div className={`gradientBG task flex-container large ${data.completed ? "o-50" : "o-100"} ${states.opened ? "taskOpened h-90" : "taskClosed h-20"} ${states.selected && !looped ? "taskSelected taskInProgress h-40": ""}`} onDoubleClick={() => {actions.onDoubleClick()}}>
             {
             (!states.selected || looped) &&
             <div className={`buttons w-100 ${states.opened ? 'h-10' : 'h-45'}`}>

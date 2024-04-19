@@ -1,5 +1,3 @@
-import { dblClick } from "@testing-library/user-event/dist/click";
-
 interface dbFuncArgs {
     index: number,
     name?: string,
@@ -12,6 +10,7 @@ function accessDB(func: (tasks: TodoTask[], params: dbFuncArgs) => void) {
 
     function inner(args: dbFuncArgs) {
         const tasks = JSON.parse(localStorage.getItem('tasks') as string);
+        console.log('change');
         func(tasks, args);
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
@@ -37,8 +36,8 @@ function write(tasks: TodoTask[], {index, name='', description=''}: dbFuncArgs) 
     }
 }
 
-function change(tasks: Array<TodoTask>, {index, prop, value}: dbFuncArgs) {
-    if (prop && value) {
+function change(tasks: TodoTask[], {index, prop, value}: dbFuncArgs) {
+    if (typeof prop !== 'undefined' && typeof value !== "undefined") {
         tasks[index][prop] = value;
     }
 }

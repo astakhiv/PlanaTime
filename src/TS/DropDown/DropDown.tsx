@@ -6,14 +6,12 @@ import addButton from "../../Images/add.png";
 import '../../CSS/dropDown.css';
 
 interface DropDownParams {
-    selected: number,
-    select: (i: number) => void,
     close: () => void,
     show: string,
     animation: string
 }
 
-function DropDown( {selected, select, close, show, animation} : DropDownParams) {
+function DropDown( { close, show, animation} : DropDownParams) {
     const [opened, setOpened] = useState(-2);
 
     const openTask = (task: number) => { setOpened(task === opened ? -1 : task) };
@@ -34,11 +32,9 @@ function DropDown( {selected, select, close, show, animation} : DropDownParams) 
         <section onClick={ (e) => closeDropDown(e) } className={"shadow h-100 w-100 " + show}>
             <div onClick={ (e) => preventDefault(e) } className={"darkBG h-80 flex-container dropDown " + animation}>
                 <TaskList
-                    select={select}
-                    selected={selected}
                     open={openTask}
                     openedTask={opened}
-                    completed={animation === "topAnim"}
+                    completed={animation==="topAnim"}
                     tasks={ JSON.parse(localStorage.getItem('tasks') as string) }/>
             </div>
             {animation === "bottomAnim" && <button style={{backgroundImage: `url(${addButton})`}} onClick={ addTask } className={"imgButton addButton " + show}></button>}

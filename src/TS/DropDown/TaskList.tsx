@@ -1,5 +1,7 @@
 import { changeProperty } from "../utils/api";
 import Task from "../Task/Task";
+import TaskContext from "../Contexts/task.contexts";
+import { useContext } from "react";
 
 interface TodoTask {
     name: string,
@@ -8,20 +10,19 @@ interface TodoTask {
 }
 
 interface TaskListProps {
-    select: (i: number) => void,
-    selected: number,
     open: (task: number) => void,
     openedTask: (number),
-    completed: boolean,
     tasks: TodoTask[],
+    completed: boolean,
 }
 
-function TaskList({ select, selected, open, openedTask, completed, tasks}: TaskListProps) {
+function TaskList({ open, openedTask, tasks, completed}: TaskListProps) {
+    const { select, selected } = useContext(TaskContext);
 
     return (
         <div className="taskList w-80 h-90">
             {
-                tasks.map((task, index: number) => {
+                tasks.map((task: TodoTask, index: number) => {
                         const props = {
                             index: index,
                             states: {
@@ -34,16 +35,15 @@ function TaskList({ select, selected, open, openedTask, completed, tasks}: TaskL
                                 select: () => select(index),
                                 reset: () => select(-1),
                                 onDoubleClick: () => {
-                                    if (completed) {
+                                    if (task.completed) {
                                         changeProperty({index: index, prop:"completed", value:false});
-                                        open(-2);
+                                        select(-2);
                                     } else {
                                         select(index);
                                     }
                                 }
                             },
                         }
-
                         return completed
                         ? task.completed && <Task looped={true} key={index} index={props.index} states={props.states} actions={props.actions} data={task}/>
                         : !task.completed && <Task looped={true} key={index} index={props.index} states={props.states} actions={props.actions} data={task}/>
