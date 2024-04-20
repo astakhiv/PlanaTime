@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/PlanaTime/static/css/main.74cf5734.css",
-    "main.js": "/PlanaTime/static/js/main.e4bf87ad.js",
+    "main.css": "/PlanaTime/static/css/main.7a41d6ff.css",
+    "main.js": "/PlanaTime/static/js/main.478bf344.js",
     "static/media/add.png": "/PlanaTime/static/media/add.1123681b77c98a065cdb.png",
     "index.html": "/PlanaTime/index.html",
-    "main.74cf5734.css.map": "/PlanaTime/static/css/main.74cf5734.css.map",
-    "main.e4bf87ad.js.map": "/PlanaTime/static/js/main.e4bf87ad.js.map"
+    "main.7a41d6ff.css.map": "/PlanaTime/static/css/main.7a41d6ff.css.map",
+    "main.478bf344.js.map": "/PlanaTime/static/js/main.478bf344.js.map"
   },
   "entrypoints": [
-    "static/css/main.74cf5734.css",
-    "static/js/main.e4bf87ad.js"
+    "static/css/main.7a41d6ff.css",
+    "static/js/main.478bf344.js"
   ]
 }
