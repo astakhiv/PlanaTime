@@ -18,6 +18,7 @@
 }
 
 .taskOpened {
+    flex-direction: column-reverse;
     justify-content: end;
     align-content: flex-start;
     margin: 10px 0;
@@ -27,12 +28,26 @@
 
 .taskSelected {
     width: 80vh;
+    text-align: start;
 }
 
 .taskName {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     position: absolute;
     top: auto;
     bottom: auto;
+}
+
+.selectedTaskName {
+    font-weight: normal;
+}
+
+.taskDescription, .selectedTaskName {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .buttons {

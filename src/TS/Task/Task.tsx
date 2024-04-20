@@ -47,20 +47,45 @@ function Task( {looped, index, data}: TaskProps  ) {
         close();
     };
 
+    const shortenName = (s: string): string => {
+        if (s.length > 8) {
+            s = s.slice(0, 8) + '…';
+        }
+
+        return s;
+    };
 
     return (
-        <div className={`gradientBG task flex-container large ${data.completed ? "o-50" : "o-100"} ${opened ? "taskOpened h-90" : "taskClosed h-20"} ${selected && !looped ? "taskSelected taskInProgress h-40": ""}`} onDoubleClick={onDoubleClick}>
+        <div className={`gradientBG task flex-container large
+                        ${data.completed ? "o-50" : "o-100"}
+                        ${opened ? "taskOpened h-90" : "taskClosed h-20"}
+                        ${selected && !looped ? "taskSelected h-80": ""}`
+                        } onDoubleClick={onDoubleClick}>
+            {
+                looped
+                ? <>
+                    {
+                        opened
+                        ? <EditForm index={index} task={data} close={ close }/>
+                        : <span className={`${looped ? 'taskName' : 'selectedTaskName'}`}>{shortenName(data.name)}</span>
+                    }
+                    {
+                        !looped && data.description && <span>{data.description}</span>
+                    }
+                </>
+                : <>
+                    <div>
+                        <h2 className="selectedTaskName">{data.name}</h2>
+                        {data.description && <p className="taskDescription">{data.description}</p>}
+                    </div>
+                </>
+            }
             {
                 (!selected || looped) &&
                 <div className={`buttons w-100 ${opened ? 'h-10' : 'h-45'}`}>
                     <button style={{backgroundImage: `url(${opened ? closeButton : openButton})`}} className={"imgButton h-45"} onClick={openTask}/>
                     <button style={{backgroundImage: `url(${deleteButton})`}} className={"imgButton h-45"} onClick={deleteTask}/>
                 </div>
-            }
-            {
-                opened
-                ? <EditForm index={index} task={data} close={ close }/>
-                : <span className="taskName">{data.name}</span>
             }
         </div>
     );
